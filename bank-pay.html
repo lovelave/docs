@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LoviLave - Квитанція для оплати</title>
+    <style>
+        *, :after, :before {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+
+            font-size: 16px;
+            font-weight: 400;
+            font-family: Arial, sans-serif;
+            color: #385a71;
+        }
+        h1,h2,h3,h4,h5,h6 {
+            margin: 0;
+        }
+        .h-align {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 100%;
+        }
+        .h-align h4 {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .h-align > span {
+        }
+        .panel-bordered {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            margin: 30px 0 20px;
+            border: 1px solid #cbe2f2;
+        }
+        .panel-bordered .half {
+            padding: 14px 20px;
+        }
+        .panel-bordered .half:first-of-type {
+            width: 61.5%;
+            border-right: 1px solid #cbe2f2;
+        }
+        .panel-bordered .half span {
+            display: block;
+        }
+        .panel-bordered .half span:first-of-type {
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .panel-bordered .half span:last-of-type {
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="panel-invoice">
+    <div class="h-align">
+        <h4>Заява на переказ готiвки</h4>
+        <span>Дата операції <span id="operationDate"/></span>
+    </div>
+    <div class="panel-bordered">
+        <div class="half">
+            <span>Номер IBAN</span>
+            <span>UA563348510000000000265021644</span>
+        </div>
+        <div class="half">
+            <span>Загальна сума (цифрами)</span>
+            <span id="amount"/>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <td>Платник</td>
+            <td id="name"/>
+        </tr>
+        <tr>
+            <td>Отримувач</td>
+            <td>ТОВ «ФК КІФ»</td>
+        </tr>
+        <tr>
+            <td>Банк отримувача</td>
+            <td>АТ «ПУМБ»</td>
+        </tr>
+        <tr>
+            <td>Код платника</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Код отримувача</td>
+            <td>42359240</td>
+        </tr>
+        <tr>
+            <td>Загальна сума (словами)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Призначення платежу</td>
+            <td>Сплата кредиту за договором № <span id="applicationId"/> від 27.08.2020, без ПДВ.</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    (function () {
+        function findElem(id) {
+            const elem = document.querySelector("#operationDate");
+            if (elem) {
+                return elem;
+            }
+
+        }
+        document.getElementById("operationDate").textContent = new Intl.DateTimeFormat("ru").format(new Date());
+
+    })()
+</script>
+</body>
+</html>
