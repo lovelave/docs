@@ -16,7 +16,7 @@
             font-size: 16px;
             font-weight: 400;
             font-family: Arial, sans-serif;
-            color: #385a71;
+            color: #1C5377;
         }
         h1,h2,h3,h4,h5,h6 {
             margin: 0;
@@ -92,6 +92,73 @@
             padding: 4px 14px;
             border: 1px solid #CBE2F2;
         }
+        
+        @media only screen and (max-width: 450px) {
+            .panel-invoice {
+                width: 100%;
+                padding: 5px;
+            }
+            .h-align {
+                flex-direction: column;
+                align-items: center;
+            }
+            .h-align h4 {
+                margin-bottom: 5px;
+                font-size: 20px;
+            }
+            .panel-bordered {
+                flex-direction: column;
+                margin-bottom: 7px;
+            }
+            .panel-bordered .half{
+                width: 100%;
+                padding: 12px 20px;
+            }
+            .panel-bordered .half:first-of-type{
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #CBE2F2;
+            }
+            .panel-bordered .half span.iban{
+                font-size: 18px;
+            }
+            tr.mob td:first-of-type {
+                padding-top: 7px;
+                padding-bottom: 3px;
+            }
+            tr.mob td:last-of-type {
+                padding-top: 3px;
+                padding-bottom: 10px;
+            }
+            tr.inline {
+                display: flex;
+            }
+            tr.inline.first td {
+                padding-top: 15px;
+                padding-bottom: 11px;
+            }
+            td {
+                display: block;
+                width: 100%;
+                padding: 3px 0;
+            }
+            td:first-of-type {
+                width: 100%;
+            }
+            td.last {
+                padding-top: 8px;
+            }
+        }
+        @media only screen and (max-width: 350px) {
+            .panel-bordered .half span.iban{
+                font-size: 17px;
+            }
+        }
+        @media only screen and (max-width: 330px) {
+            .panel-bordered .half span.iban{
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -103,7 +170,7 @@
     <div class="panel-bordered">
         <div class="half">
             <span>Номер IBAN</span>
-            <span>UA563348510000000000265021644</span>
+            <span class="iban">UA563348510000000000265021644</span>
         </div>
         <div class="half">
             <span>Загальна сума (цифрами)</span>
@@ -111,32 +178,32 @@
         </div>
     </div>
     <table>
-        <tr class="bordered">
+        <tr class="bordered mob">
             <td>Платник</td>
             <td id="name"/>
         </tr>
-        <tr class="p-b">
+        <tr class="p-b mob">
             <td>Отримувач</td>
             <td>ТОВ «ФК КІФ»</td>
         </tr>
-        <tr>
+        <tr class="inline first">
             <td>Код платника</td>
             <td>
                <span id="inn" class="bordered"/>
             </td>
         </tr>
-        <tr class="p-b">
+        <tr class="p-b inline">
             <td>Код отримувача</td>
             <td>
                 <span class="bordered">42359240</span>
             </td>
         </tr>
-        <tr class="bordered">
+        <tr class="bordered mob">
             <td>Загальна сума (словами)</td>
             <td id="textAmount"/>
         </tr>
         <tr>
-            <td>Призначення платежу</td>
+            <td class="last">Призначення платежу</td>
             <td>Сплата кредиту за договором № <span id="applicationId"></span> від <span id="datePaid"></span>, без ПДВ.</td>
         </tr>
     </table>
