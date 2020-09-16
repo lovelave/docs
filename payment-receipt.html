@@ -92,6 +92,9 @@
             padding: 4px 14px;
             border: 1px solid #dde7ef;
         }
+        td.last + td {
+            line-height: 19px;
+        }
         
         @media only screen and (max-width: 450px) {
             .panel-invoice {
@@ -211,20 +214,18 @@
 
 <script>
     (function () {
-        window.addEventListener("print", window.print);
-
         /**
          * @param {string} id
-         * @param {string} data
+         * @param {string} value
          * @return undefined
          **/
-        function setData(id, data) {
+        function setData(id, value) {
             const element = document.getElementById(id);
             if (!element) {
                 console.log(`Can't find "${id}" id`);
                 return;
             }
-            element.textContent = data;
+            element.textContent = value;
         }
 
         /**
@@ -236,8 +237,8 @@
 
         setData("operationDate", new Intl.DateTimeFormat("ru").format(new Date()));
 
-        getParams().map(([key, value]) => {
-            setData(key, value);
+        getParams().map(([id, value]) => {
+            setData(id, value);
         });
     })()
 </script>
