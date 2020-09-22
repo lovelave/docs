@@ -314,7 +314,7 @@
          * @param amount {number}
          * @return string
          **/
-        export function amountToWords(amount) {
+        function amountToWords(amount) {
             let fInt = Math.floor(amount + 0.005);
             const fDec = Math.floor(((amount - fInt) * 100) + 0.5);
             const arrRet = [];
